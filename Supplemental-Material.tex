@@ -60,17 +60,17 @@ preprint
 \maketitle
 %\section{Introduction}
 \revision{
-\section{Hamiltonian for environment and its coupling with system}
-The Hamiltonian of environment and its coupling with system are $\mathcal{H}_{en}$ and $\mathcal{H}_{en-s}$. Here $\mathcal{H}_{en}$ contains electrodes $\mathcal{H}_{elec}$ and photon bath $\mathcal{H}_{ph}$
+\section{Hamiltonian of the environment and its coupling with system}
+Hamiltonian of the environment and its coupling with system are $\mathcal{H}_{en}$ and $\mathcal{H}_{en-s}$, respectively. Here $\mathcal{H}_{en}$ contains electrodes $\mathcal{H}_{elec}$ and photon bath $\mathcal{H}_{ph}$
 \begin{equation}
 \begin{split}
 &\mathcal{H}_{en}=\mathcal{H}_{elec}+\mathcal{H}_{ph},\\  
-&\mathcal{H}_{elec}=\sum_{k_{\alpha 1};\alpha\in L,R}\varepsilon_{k_{\alpha1}}c_{k_{\alpha 1}}^{\dagger}c_{k_{\alpha 1}}+\sum_{k_{\alpha2};\alpha\in L,R}\varepsilon_{k_{\alpha 2}}c_{k_{\alpha 2}}^{\dagger}c_{k_{\alpha 2}},\\
+&\mathcal{H}_{elec}=\sum_{k_{\alpha\nu};\alpha\in L,R;\nu\in p,m}\varepsilon_{k_{\alpha1}}c_{k_{\alpha \nu}}^{\dagger}c_{k_{\alpha \nu}},\\
 &\mathcal{H}_{ph}=\sum_{q}\hbar\omega_{q}(\frac{1}{2}+a_{q}^{\dagger}a_{q}),\\
 \end{split}
 \end{equation}
-where the subscript 1/2 in $H_{elec}$ labels two electrical subsystems that can be used to excite the molecules p and m. $c_{k_{\alpha j}}^{\dagger}~(c_{k_{\alpha j}})$ is the creation (annihilation) operator of an
-electron with energy $\varepsilon_{k_{\alpha j}}$ in the electrode $\alpha$ of subsystem $j=1,2$. In $\mathcal{H}_{ph}$, $a_{q}^{\dagger}~(a_{q})$ is the creation (annihilation) operator of a photon with angular frequency $\omega_{q}$ in the bath.
+where the subscript $\nu$ labels two electrical subsystems that can be used to excite the molecules p and m, $c_{k_{\alpha \nu}}^{\dagger}~(c_{k_{\alpha \nu}})$ is the creation (annihilation) operator of an
+electron with energy $\varepsilon_{k_{\alpha \nu}}$ in the electrode $\alpha$ of subsystem $\nu$. In $\mathcal{H}_{ph}$, $a_{q}^{\dagger}~(a_{q})$ is the creation (annihilation) operator of a photon with angular frequency $\omega_{q}$ in the photon bath.
 
 The environment-system interaction can be expressed as
 \begin{equation}
@@ -78,16 +78,15 @@ The environment-system interaction can be expressed as
 \mathcal{H}_{en-s}=\mathcal{H}_{mole-elec}+\mathcal{H}_{c-ph}+\mathcal{H}_{mole-ph},
 \end{split}
 \end{equation}
-where $\mathcal{H}_{mole-elec}$ describes the the coupling between the molecules and the electrodes
+where $\mathcal{H}_{mole-elec}=\mathcal{H}_{p-elec}+\mathcal{H}_{m-elec}$ describes the the coupling between the molecules and the electrodes. For molecule $p$, we have
 \begin{equation}
 \begin{split}
-\mathcal{H}_{mole-elec}&=\sum_{k_{L1}}(t_{L1,e}c_{k_{L1}}^{\dagger}d_{e}+t_{L1,e}^{\ast}d_{e}^{\dagger}c_{k_{L1}})+\sum_{k_{R1}}(t_{R1,g}c_{k_{R1}}^{\dagger}d_{g}+t_{R1,g}^{\ast}d_{g}^{\dagger}c_{k_{R1}})\\
-&+\sum_{k_{L2}}(t_{L2,l}c_{k_{L2}}^{\dagger}d_{l}+t_{L2,l}^{\ast}d_{l}^{\dagger}c_{k_{L2}})+\sum_{k_{R2}}(t_{R2,h}c_{k_{R2}}^{\dagger}d_{h}+t_{R2,h}^{\ast}d_{h}^{\dagger}c_{k_{R2}}),\\
+\mathcal{H}_{p-elec}&=\sum_{k_{Lp}}(t_{Lp,e}c_{k_{Lp}}^{\dagger}d_{e}+t_{Lp,e}^{\ast}d_{e}^{\dagger}c_{k_{Lp}})+\sum_{k_{Rp}}(t_{Rp,g}c_{k_{Rp}}^{\dagger}d_{g}+t_{Rp,g}^{\ast}d_{g}^{\dagger}c_{k_{Rp}}),
 \end{split}
 \label{molecule-electrode}
 \end{equation}
-where the first (second) line at the right hand describes the coupling between the molecule p (m) and the electrical subsystem 1 (2), and $t_{L1,e}$ ($t_{L2,l}$) and $t_{R1,g}$ ($t_{R2,h}$) are the corresponding tunneling matrix elements for electron tunneling between molecule p (m) and electrodes. $d_{g,h,e,l}=|0\rangle\langle g,h,e,l|$ and $d_{g,h,e,l}^{\dagger}=|g,h,e,l\rangle\langle 0|$ are the operators of molecular orbitals.
-
+Similar expressions can be written for $\mathcal{H}_{m-elec}$.
+%
 $\mathcal{H}_{c-ph}$ describes the coupling between cavity mode and photon bath
 \begin{equation}
 \mathcal{H}_{c-ph}=\sum_{q}(t_{qc}a_{q}^{\dagger}a_{c}+t_{qc}^{\ast}a_{c}^{\dagger}a_{q}),
@@ -99,60 +98,60 @@ $\mathcal{H}_{mole-ph}$ describes the coupling between molecule and photon bath
 \mathcal{H}_{mole-ph}=\sum_{q;\nu=p,m}(t_{qmo}a_{q}^{\dagger}\sigma_{\nu}+t_{qmo}^{\ast}\sigma_{\nu}^{\dagger}a_{q}),
 \end{equation}
 where $t_{qmo}$ characterizes the coupling strength.
-
+%
 Here we assume that the photon bath is in thermal equilibrium, then the photons in the bath obey Bose-Einstein distribution $n_{B}(\omega)=(e^{\hbar\omega/k_{B}T}-1)^{-1}$.
-Meanwhile, the coupling between the cavity mode and the bath can be expressed as $\gamma_{c}=2\pi\sum_{\alpha}\left| t_{qc }\right|^{2}\delta(\omega-\omega_{c})$.
-Similarly, the spontaneous emission rate of molecular exciton is characterized by $\gamma_{d\nu}=2\pi\sum_{\alpha}\left| t_{qmo }\right|^{2}\delta(\omega-\omega_{\nu})$, where $\nu=p~(m)$ for molecule with transition frequency $\omega_{p}=(\varepsilon_{e}-\varepsilon_{g})/\hbar$ ($\omega_{m}=(\varepsilon_{l}-\varepsilon_{h})/\hbar$). 
+The coupling between the cavity mode and the bath can be expressed as $\gamma_{c}=2\pi\sum_{q}\left| t_{qc }\right|^{2}\delta(\omega-\omega_{c})$.
+Similarly, $\gamma_{d\nu}=2\pi\sum_{q}\left| t_{qmo }\right|^{2}\delta(\omega-\omega_{\nu})$, with $\hbar\omega_\nu$  the molecular level separation.
 
-In the main text, we consider the molecular exciton is excited by the electrical pumping. So, we rewrite Eq.~\ref{molecule-electrode} in the representation of molecular exciton. Actually, the exciton forms when an electron and a hole from electrodes are injected into the level $e$ ($l$) and $g$ ($h$). Based on this, we have
+The excitation (b, d) and de-excitation (a, c) of molecular exciton by the electrical pumping can be expressed in the following processes 
 \begin{equation}
 \begin{split}
-\mathcal{H}_{mole-elec}&=\underbrace{\sum_{k_{L1}}\sum_{k_{R1}}t_{L1,e}t_{R1,g}^{\ast}c_{k_{L1}}^{\dagger}c_{k_{R1}}d_{g}^{\dagger}d_{e}}_{(a)}+\underbrace{\sum_{k_{L1}}\sum_{k_{R1}}t_{L1,e}^{\ast}t_{R1,g}c_{k_{R1}}^{\dagger}c_{k_{L1}}d_{e}^{\dagger}d_{g}}_{(b)}\\
-&+\underbrace{\sum_{k_{L2}}\sum_{k_{R2}}t_{L2,l}t_{R2,h}^{\ast}c_{k_{L2}}^{\dagger}c_{k_{R2}}d_{h}^{\dagger}d_{l}}_{(c)}+\underbrace{\sum_{k_{L2}}\sum_{k_{R2}}t_{L2,l}^{\ast}t_{R2,h}c_{k_{R2}}^{\dagger}c_{k_{L2}}d_{l}^{\dagger}d_{h}}_{(d)},\\
+&\underbrace{\sum_{k_{Lp}}\sum_{k_{Rp}}t_{Lp,e}t_{Rp,g}^{\ast}c_{k_{Lp}}^{\dagger}c_{k_{Rp}}\sigma_p}_{(a)}+\underbrace{\sum_{k_{Lp}}\sum_{k_{Rp}}t_{Lp,e}^{\ast}t_{Rp,g}c_{k_{Rp}}^{\dagger}c_{k_{Lp}}\sigma_p^\dagger}_{(b)}\\
+&+\underbrace{\sum_{k_{Lm}}\sum_{k_{Rm}}t_{Lm,l}t_{Rm,h}^{\ast}c_{k_{Lm}}^{\dagger}c_{k_{Rm}}\sigma_m}_{(c)}+\underbrace{\sum_{k_{Lm}}\sum_{k_{Rm}}t_{Lm,l}^{\ast}t_{Rm,h}c_{k_{Rm}}^{\dagger}c_{k_{Lm}}\sigma_m^\dagger}_{(d)},
 \end{split}
 \label{exciton-electrode}
 \end{equation}
-where $d_{g}^{\dagger}d_{e}$ ($d_{h}^{\dagger}d_{l}$) and $d_{e}^{\dagger}d_{g}$ ($d_{l}^{\dagger}d_{h}$) are the annihilation and creation operators of molecular exciton p (m). Correspondingly, $c_{k_{L1}}^{\dagger}c_{k_{R1}}$ ($c_{k_{L2}}^{\dagger}c_{k_{R2}}$) and  $c_{k_{R1}}^{\dagger}c_{k_{L1}}$ ($c_{k_{R2}}^{\dagger}c_{k_{L2}}$) describe the process of generating and annihilating an electron-hole pair in the electrodes. Actually, the electrodes $L1$ ($L2$) and $R1$ ($R2$) under applied bias can be regarded as a nonequilibrium electronic reservoir, where the creation and annihilation operators are $c_{k_{L1}}^{\dagger}c_{k_{R1}}$ ($c_{k_{L2}}^{\dagger}c_{k_{R2}}$) and  $c_{k_{R1}}^{\dagger}c_{k_{L1}}$ ($c_{k_{R2}}^{\dagger}c_{k_{L2}}$). Then the mean number of particle in such electronic reservoir is $f_{j}^{e}=\langle c_{k_{Lj}}^{\dagger}c_{k_{Rj}} c_{k_{Rj}}^{\dagger}c_{k_{Lj}}\rangle$, where $j=1,2$. It is assumed that there is no interaction between the electrons in the electronic reservoir, with the help of the Wick's theorem, we have
+where $\sigma_p = d_{g}^{\dagger}d_{e}$ ($\sigma_m=d_{h}^{\dagger}d_{l}$) and $\sigma_p^\dagger=d_{e}^{\dagger}d_{g}$ ($\sigma_m^\dagger=d_{l}^{\dagger}d_{h}$) are the annihilation and creation operators of molecular exciton p (m).   
+With this, the rates $\Gamma_{\nu}^{+}$ and $\Gamma_{\nu}^{-}$ in Eq.~6 of the main text can be obtained. For example, we have for molecule $p$
 \begin{equation}
 \begin{split}
-f_{j}^{e}&=
-\langle c_{k_{Lj}}^{\dagger}c_{k_{Lj}}\rangle \langle c_{k_{Rj}} c_{k_{Rj}}^{\dagger}\rangle\\
-&=n_{F}^{Lj}(\varepsilon_{k_{Lj}})[1-n_{F}^{Rj}(\varepsilon_{k_{Rj}})]\\
-&=-n_{B}(\hbar\omega_{j}-eV_{j})[n_{F}^{Lj}(\varepsilon_{k_{Lj}})-n_{F}^{Rj}(\varepsilon_{k_{Rj}})],\\
+&\Gamma_{p}^{+}=E_{p}f_{p}^{e},
+\quad \Gamma_{p}^{-}=E_{p}(1-f_{p}^{e}),
 \end{split}
 \end{equation}
-where $n_{F}^{\alpha j}(\varepsilon)=(e^{(\varepsilon-\mu_{\alpha j})/k_{B}T}+1)^{-1}$ is the  Fermi-Dirac distribution with the chemical potential $\mu_{\alpha j}$ and the temperature $T$.  
-$eV_{j}=\mu_{Lj}-\mu_{Rj}$ is bias voltage between electrodes $Lj$ and $Rj$. $\hbar\omega_{j}=\varepsilon_{k_{Lj}}-\varepsilon_{k_{Rj}}$ is the energy difference between two electrodes $Lj$ and $Rj$ induced by the bias voltage.
+where $E_{p}=\sum_{k_{Lp},k_{Rp}}|t_{Lp,e}|^2 |t_{Rp,g}|^2\delta(\varepsilon_{k_{Lp}}-\varepsilon_e)\delta(\varepsilon_{k_{Rp}}-\varepsilon_g)$. We take the tunnel matrix elements to be constant.
+%We have assumed that $eV_{j}>\hbar\omega_{j}$, then $f_{j}^{e}=1$ at low-temperature limit. In this case, we have $\Gamma_{p}^{+}=E_{p}$, $\Gamma_{m}^{+}=E_{m}$, $\Gamma_{p}^{-}=0$, and $\Gamma_{m}^{-}=0$.
+The joint occupation can be evaluated as
+\begin{equation}
+\begin{split}
+f_{p}^{e}&=
+\langle c_{k_{Lp}}^{\dagger}c_{k_{Lp}}\rangle \langle c_{k_{Rp}} c_{k_{Rp}}^{\dagger}\rangle\\
+&=n_{F}^{Lp}(\varepsilon_{e})[1-n^{Rp}_{F}(\varepsilon_{g})]\\
+&=-n_{B}(\hbar\omega_{p}-eV_{p})[n^{Lp}_{F}(\varepsilon_{e})-n^{Rp}_{F}(\varepsilon_{g})],\\
+\end{split}
+\end{equation}
+where $n_{F}^{\alpha p}(\varepsilon)=(e^{(\varepsilon-\mu_{\alpha  p})/k_{B}T}+1)^{-1}$ is the  Fermi-Dirac distribution with the chemical potential $\mu_{\alpha p}$ and the temperature $T$,  
+$eV_{p}=\mu_{Lp}-\mu_{Rp}$ is bias voltage between electrodes $Lp$ and $Rp$. We consider the case where level $e$ couples only to the left and $g$ only to the right electrode. When $\mu_{Lp} \gg \varepsilon_e > \varepsilon_g \gg \mu_{Rp}$, we have $f_p^e = 1$, thus $\Gamma_p^+=E_{p}$ and $\Gamma_p^-=0$. We can consider pumping of molecule $m$ in the same way.
 
-If $eV_{j}>0$, when the molecule levels ($g/e$ and $h/l$ for p and m) are in the bias window, an electron and a hole can be injected into levels $e$ ($l$) and $g$ ($h$) from electrodes $Lj$ and $Rj$. Therefore the molecular can be excited, which corresponds to terms (b) and (d) in Eq.~\ref{exciton-electrode}, while the reverse process is characterized by terms (a) and (c).
-In this case, $\varepsilon_{k_{L1,2}}\approx\varepsilon_{e,l}$ and $\varepsilon_{k_{R1,2}}\approx\varepsilon_{g,h}$. Here, we consider $\mu_{L1,2}\gg \varepsilon_{e,l}$ and $\varepsilon_{g,h}\gg \mu_{R1,2}$, then $n_{F}^{Lj}(\varepsilon_{k_{Lj}})=1$ and $n_{F}^{Rj}(\varepsilon_{k_{Rj}})=0$, such that $f_{j}^{e}=-n_{B}(\hbar\omega_{j}-eV_{j})$. Finally, we can get the rates $\Gamma_{\nu}^{+}$ and $\Gamma_{\nu}^{-}$ in Eq.~6 of the main text
-\begin{equation}
-\begin{split}
-&\Gamma_{p}^{+}=E_{p}f_{e}^{1},\\
-&\Gamma_{m}^{+}=E_{m}f_{e}^{2},\\
-&\Gamma_{p}^{-}=E_{p}(1-f_{e}^{1}),\\
-&\Gamma_{m}^{-}=E_{m}(1-f_{e}^{2}).\\
-\end{split}
-\end{equation}
-where $E_{p}=t_{L1,e}^{\ast}t_{R1,g}$ and $E_{m}=t_{L2,e}^{\ast}t_{R2,g}$, and we take $t_{\alpha1,e}=t_{\alpha1,g}$ and $t_{\alpha2,l}=t_{\alpha2,h}$. Meanwhile, the tunnel matrix elements are real constant.
-We have assumed that $eV_{j}>\hbar\omega_{j}$, then $f_{j}^{e}=1$ at low-temperature limit. In this case, we have $\Gamma_{p}^{+}=E_{p}$, $\Gamma_{m}^{+}=E_{m}$, $\Gamma_{p}^{-}=0$, and $\Gamma_{m}^{-}=0$.
 }
 
 
 
 \section{Matrix elements of the density operator}
 \label{matrix}
+
 We can define the molecule-cavity reduced density operator
 \begin{equation}
 \rho_{m,n}^{ij,i^{\prime}j^{\prime}}:=\langle m,i,i^{\prime}|\rho|j^{\prime},j,n \rangle,
 \end{equation}
-where $i,j=h,l$ and $i^{\prime},j^{\prime}=g,e$. $m$ and $n$ represent the photon Fock states in the cavity. The Coulomb interaction
+where $i,j=g,e$ and $i^{\prime},j^{\prime}=h,l$. $m$ and $n$ represent the photon Fock states in the cavity. The Coulomb interaction
 between two levels in each molecule is assumed very strong, such that only one additional electron can
- occupy the molecule at a time. In this case, for given $m$ and $n$, 16 linear equations for the matrix elements can be obtained
- %as shown in Fig.~\ref{figure:master-p}.
- %and their detailed expressions are not shown.
+ occupy the molecule at a time. In this case, for given $m$ and $n$, 16 linear equations for the matrix elements can be obtained. Here, their detailed expressions are not shown.
+ %as shown in Fig.~\ref{figure:master-p},
+
  %
- %\iffalse
+ \iffalse
+ 
 \begin{equation}
 \begin{split}
 \frac{d}{dt}\rho_{m,n}^{hh,gg}&=-i\hbar\omega_{c}(m-n)\rho_{m,n}^{hh,gg}+\gamma_{dm}\rho_{m,n}^{ll,gg}
@@ -348,15 +347,15 @@ between two levels in each molecule is assumed very strong, such that only one a
 %\end{split}
 %\end{equation}
 %
-%\fi
+\fi
 %
-The remaining six equations are $\rho_{m-1,n}^{hh,eg}$, $\rho_{m-1,n}^{ll,eg}$, $\rho_{m-1,n}^{lh,gg}$, $\rho_{m-1,n}^{lh,ee}$, $\rho_{m,n}^{lh,ge}$, and $\rho_{m-2,n}^{lh,eg}$. The detailed forms of these equation can be obtained from their Hermitian conjugate of Eqs.~\ref{hh,ge}, \ref{ll,ee}, \ref{hl,gg}, \ref{hl,ee}, \ref{hl,eg}, and \ref{hl,ge}.
-\begin{figure}
-\centering
-\includegraphics[width=9cm]{master.eps}
-\caption{Self-consistent hierarchy of the dynamical equations without the dipole-dipole interaction.}
-\label{figure:master-p}
-\end{figure}
+%The remaining six equations are $\rho_{m-1,n}^{hh,eg}$, $\rho_{m-1,n}^{ll,eg}$, $\rho_{m-1,n}^{lh,gg}$, $\rho_{m-1,n}^{lh,ee}$, $\rho_{m,n}^{lh,ge}$, and $\rho_{m-2,n}^{lh,eg}$. The detailed forms of these equation can be obtained from their Hermitian conjugate of Eqs.~\ref{hh,ge}, \ref{ll,ee}, \ref{hl,gg}, \ref{hl,ee}, \ref{hl,eg}, and \ref{hl,ge}.
+%\begin{figure}
+%\centering
+%\includegraphics[width=9cm]{master.eps}
+%\caption{Self-consistent hierarchy of the dynamical equations without the dipole-dipole interaction.}
+%\label{figure:master-p}
+%\end{figure}
 %
 In the steady state, $\frac{d}{dt}\rho_{m,n}^{ij,i^{\prime}j^{\prime}}=0$, we can get a coupled set of linear equations. Then the occupation probability of the cavity mode $p_{m}$ can be expressed as
 \begin{equation}
@@ -366,7 +365,9 @@ p_{m}=\rho_{m,m}^{hh,gg}+\rho_{m,m}^{hh,ee}+\rho_{m,m}^{ll,gg}+\rho_{m,m}^{ll,ee
 \label{pm}
 \end{equation}
 It is worth pointing out that one must use the normalization condition when solving $p_{m}$, that is, $\sum_{m}(\rho_{m,m}^{hh,gg}+\rho_{m,m}^{hh,ee}+\rho_{m,m}^{ll,gg}+\rho_{m,m}^{ll,ee})=1$.
-The whole coupling scheme of dynamical quantities in right side of Eq.~\ref{pm} fulfilling a self-consistent hierarchy of dynamical equations, as depicted in Fig.~\ref{figure:master-p}. \revision{To solve these equations, the photonic Hilbert space must be truncated at a crucial order $N$ of the photon states.  The total number of equations is $16(N+1)^{2}$. Finally, the numerical solution can be performed by using the Gauss-Jordan Elimination. In our calculations, it is enough to take $N=100$.}
+The whole coupling scheme of dynamical quantities in right side of Eq.~\ref{pm} fulfilling a self-consistent hierarchy of dynamical equations.
+%as depicted in Fig.~\ref{figure:master-p}. 
+\revision{To solve these equations, the photonic Hilbert space must be truncated at a crucial order $N$ of the photon states.  The total number of equations is $16(N+1)^{2}$. Finally, the numerical solution can be performed by using the Gauss-Jordan elimination. In our calculations, it is enough to take $N=100$.}
 
 \begin{figure}[h]
 \centering

@@ -119,10 +119,11 @@ Second, contrary to previous proposal \cite{PhysRevLett.108.183601} where single
 \caption{Schematic representation of the system: two molecules (marked by $p$ and $m$) and an optical cavity. The molecules can be excited by electrical pumping ($E_{p}$ and $E_{m}$) and they couple to the cavity by their respective electron-photon interactions characterized by parameters $g_{p}$ and $g_{m}$. The dipole-dipole interaction between molecules is characterized by $t_{D}$. The dissipation of the molecules and the cavity are included in the theory but not shown here. Here we consider three situations: (1) Single-molecule emission, where $E_{m}=0$ and $g_{m}=0$. This corresponds to the Jaynes-Cummings model. (2) Emission with Fano-like interference, where $E_{m}=0$ and $g_{m}\neq 0$; (3) Two-molecule emission, where $E_{m}\neq 0$ and $g_{m}\neq 0$. This corresponds to the Tavis-Cummings model. In all cases, the molecule $p$ is always excited by an electrical pumping and its coupling with cavity is considered, that is, $E_{p}\neq 0$ and $g_{p}\neq 0$. }
 \label{junction-1}
 \end{figure}
+
 \section{Model}
 A schematic of the model is shown in Fig.~\ref{junction-1}.
 The two molecules labeled by $p$ and $m$ can be excited by the electrical pumping $E_{p}$ and $E_{m}$, respectively.
-They couple simutaneously to one optical cavity.
+They couple simultaneously to one optical cavity.
 The total Hamiltonian is
 \begin{equation}
 \mathcal{H}_{s}=\mathcal{H}_{p}+\mathcal{H}_{m}+\mathcal{H}_{c}+\mathcal{H}_{I}+\mathcal{H}_{D},
@@ -131,8 +132,8 @@ The total Hamiltonian is
 where $\mathcal{H}_{p}$ and $\mathcal{H}_{m}$ describe the uncoupled molecules
 \begin{equation}
 \begin{split}
-&\mathcal{H}_{p}=\sum_{i=g,e}\varepsilon_{i}|i\rangle\langle i|,\\
-&\mathcal{H}_{m}=\sum_{i^{\prime}=h,l}\varepsilon_{i^{\prime}}|i^{\prime}\rangle\langle i^{\prime}|,\\
+&\mathcal{H}_{p}=\sum_{i=g,e}\varepsilon_{i}d_i^\dagger d_i,\\
+&\mathcal{H}_{m}=\sum_{i^{\prime}=h,l}\varepsilon_{i^{\prime}}d_{i'}^\dagger d_{i'},\\
 \end{split}
 \end{equation}
 where each molecule contains two well-defined energy levels, that is, $g/e~(h/l)$ for $p~(m)$ with energies $\varepsilon_{g/e}~(\varepsilon_{l/h})$.
@@ -144,25 +145,25 @@ The interaction between the two molecules and the cavity in the rotating wave ap
 \begin{equation}
 \mathcal{H}_{I}=g_{p}(\sigma_{p}a^{\dag}_{c}+a_{c}\sigma_{p}^{\dag})+g_{m}(\sigma_{m}a^{\dag}_{c}+a_{c}\sigma_{m}^{\dag}),
 \end{equation}
-where $\sigma_{p}=|g\rangle\langle e|$ ($\sigma_{m}=|h\rangle\langle l|$) and $\sigma_{p}^{\dag}=|e\rangle\langle g|$ ($\sigma_{m}^{\dag}=|l\rangle\langle h|$) are the annihilation and creation operators of molecular exciton $p$ ($m$), respectively, and $g_{m}$, $g_{p}$ are the corresponding molecule-cavity coupling strength.
+where $\sigma_{p}=d_g^\dagger d_e$ ($\sigma_{m}=d_h^\dagger d_l$) and $\sigma_{p}^{\dag}=d_e^\dagger d_g$ ($\sigma_{m}^{\dag}=d_l^\dagger d_h$) are the annihilation and creation operators of molecular exciton $p$ ($m$), respectively, and $g_{m}$, $g_{p}$ are the corresponding molecule-cavity coupling strength.
 We will also consider a dipole-dipole coupling between the two molecules
 \begin{equation}
 \mathcal{H}_{D}=t_{D}(\sigma_{p}^{\dagger}\sigma_{m}+\sigma_{m}^{\dagger}\sigma_{p}),
 \end{equation}
 where $t_{D}$ is the coupling strength \cite{vlaming2014tunable,zhang2016visualizing,PhysRevLett.122.233901}.
 
-\revision{The Hamiltonian of the environment and its interaction with the system is provided in Section I of the Supplemental Material \cite{SupplementalMaterial}.}
+%\revision{The Hamiltonian of the environment and its interaction with the system is provided in Section I of the Supplemental Material \cite{SupplementalMaterial}.}
 
 
 
 
 \section{Master equation}
-Considering weak interaction between the system and the environment, we can use the master equation to describe photon transport and its statistics.
+Considering weak interaction between the system and the environment (details are given in the Supplemental Materials \cite{SupplementalMaterial}), we can use the master equation to describe photon transport and its statistics.
 We define the reduced density matrix for the system as $\rho$ by tracing out the environment degrees of freedom in the total density matrix $\rho_{t}$, that is, $\rho={\rm Tr}_{\rm en}[\rho_{t}]$. Under the Born-Markovian approximation, the dynamics of $\rho$ satisfies the master equation \cite{gardiner1985handbook,scully1997quantum,breuer2002theory,carmichael2013statistical}
 \begin{equation}
 \begin{split}
-\frac{d}{dt}\rho&=\frac{1}{i\hbar}[\mathcal{H}_{s},\rho]
-+\frac{1}{2}\sum_{\nu=p,m}\Gamma^{+}_{\nu}\mathcal{L}[\sigma_{\nu}^{\dagger}]\rho
+\frac{d}{dt}\rho&=\frac{1}{i\hbar}[\mathcal{H}_{s},\rho]\\
+&+\frac{1}{2}\sum_{\nu=p,m}\Gamma^{+}_{\nu}\mathcal{L}[\sigma_{\nu}^{\dagger}]\rho
 +\frac{1}{2}\sum_{\nu=p,m}\Gamma^{-}_{\nu}\mathcal{L}[\sigma_{\nu}]\rho\\
 &+\frac{1}{2}\sum_{\nu=p,m}\gamma^{+}_{d\nu}\mathcal{L}[\sigma_{\nu}^{\dagger}]\rho
 +\frac{1}{2}\sum_{\nu=p,m}\gamma^{-}_{d\nu}\mathcal{L}[\sigma_{\nu}]\rho\\
@@ -171,13 +172,17 @@ We define the reduced density matrix for the system as $\rho$ by tracing out the
 \end{split}
 \label{master-equation}
 \end{equation}
-Here, the commutator in the first term at the right hand side describes the coherent evolution of the isolated $\mathcal{H}_{s}$.
-The coupling with the environment of the system is taken into account by the rest terms. %\cite{PhysRevA.59.4756,PhysRevB.79.235325,PhysRevB.79.235326}.
-\revision{The electrical pumping applied to the molecule p (m) is described by the second term, where an electron-hole can be injected from a nonequilibrium electronic reservoir $j$ ($j=1~(2)$ for molecule p (m)). 
-Note that, the electronic reservoir is not in thermodynamic equilibrium.
+Here, the commutator in the first \revision{line} at the right hand side describes the coherent evolution of the isolated $\mathcal{H}_{s}$.
+The system coupling with the environment is taken into account by the rest terms. %\cite{PhysRevA.59.4756,PhysRevB.79.235325,PhysRevB.79.235326}.
+\revision{The electrical driving applied to the molecule p (m) is described by the two terms in the second line. %an electron-hole pair can be injected from the corresponding electrodes $\nu$ with the help of voltage bias.
+%Note that, the electronic reservoir is not in thermodynamic equilibrium.
 %where the energy comes from electron-hole recombination, 
 %i.e., inelastic electronic transition from high to low energy states. 
-The reverse process characterized by the third term describes the creation of an electron-hole pair in the electrical reservoir. The rates for these two processes are  $\Gamma^{+}_{\nu}=E_{\nu}f^{e}_{j}$ and $\Gamma^{-}_{\nu}=E_{\nu}(1-f^{e}_{j})$, respectively. Here $f_{j}^{e}$ is the distribution function of the electronic reservoir.} 
+%The reverse process characterized by the third term describes the creation of an electron-hole pair in the electrical reservoir. 
+The two processes represented by $\Gamma^{+}_{\nu}$ and $\Gamma^{-}_{\nu}$ correspond to creation and recombination of molecular exciton, respectively.
+A microscopic model of the electrical driving is given in Ref.~\cite{SupplementalMaterial}.}
+%The driving rates for these two processes are  $\Gamma^{+}_{\nu}=E_{\nu}f^{e}_{j}$ and $\Gamma^{-}_{\nu}=E_{\nu}(1-f^{e}_{j})$, respectively.
+%Here $f_{j}^{e}$ is the distribution function of the electronic reservoir.} 
 %In fact, the electrodes under the applied bias can be regarded as a bosonic bath, then $E^{+/-}_{p/m}$ can be obtained by using the Fermi's golden rule \cite{PhysRevLett.107.046801,hu2020nonequilibrium}
 %\begin{equation}
 %\begin{split}
@@ -188,16 +193,13 @@ The reverse process characterized by the third term describes the creation of an
 %where $\omega_{p}=(\varepsilon_{e}-\varepsilon_{g})/\hbar$. $\varepsilon_{i}$ and $\varepsilon_{f}$ are the energies of electrons in electrodes with chemical potentials $\mu_{\alpha}$ and $\mu_{\beta}$, the applied bias between them is $eV=\mu_{\alpha/\beta}-\mu_{\beta/\alpha}>0$ for `$+/-$'. Moreover, $n_{B}^{+}=n_{B}$ and $n_{B}^{-}=n_{B}+1$.
 %$M$ is the electron-photon coupling. One can get the expressions for $E^{+}_{m}$ and $E^{-}_{m}$ by replacing $\varepsilon_{p}$ with $\varepsilon_{m}$, where $\omega_{m}=(\varepsilon_{l}-\varepsilon_{h})/\hbar$.
 %
-The photons emitted from molecules are collected by a photon bath, the system coupling to which is represented by $\gamma_{d\nu}^{-}=\gamma_{d\nu}[n_{B}(\omega_{\nu})+1]$, which describes photon emission to the bath induced by the inelastic transition from level $l~(e)$ to $h~(g)$. The absorption process corresponds to $\gamma_{d\nu}^{+}=\gamma_{d\nu}n_{B}(\omega_{\nu})$. This occurs when the temperature of the bath is large enough, such that it can emit thermal photons and the transition from $h~(g)$ to $l~(e)$ becomes possible.
+The third and fourth lines describe the coupling of the molecular exciton and the cavity photon to the photon bath.
+Specifically, $\gamma_{d\nu}^{-}=\gamma_{d\nu}[n_{B}(\omega_{\nu})+1]$ describes photon emission to the bath as a result of molecular exciton annihilation,  $\gamma_{d\nu}^{+}=\gamma_{d\nu}n_{B}(\omega_{\nu})$ corresponds to the opposite process of thermal excitation of the molecular exciton, which occurs only when the temperature of the bath is large enough. Here, $n_{B}(\omega)=(e^{\hbar\omega/k_{B}T}-1)^{-1}$ is the Bose-Einstein distribution.  The coupling between the cavity mode and the photon bath is written similarly with \revision{parameters $\kappa_c^{-}=\gamma_{c}[n_{B}(\omega_{c})+1]$ and $\kappa_c^{+}=\gamma_{c}n_{B}(\omega_{c})$}.
 %
-Similarly, the coupling between the cavity mode and the photon bath is characterized by $\kappa_{c}^{-}=\gamma_{c}[n_{B}(\omega_{c})+1]$ and $\kappa_{c}^{+}=\gamma_{c}n_{B}(\omega_{c})$, respectively.
 %
-$n_{B}(\omega)=(e^{\hbar\omega/k_{B}T}-1)^{-1}$ is the Bose-Einstein distribution. 
 %and $f_{\alpha}(\varepsilon)=(e^{(\varepsilon-\mu_{\alpha})/k_{B}T}+1)^{-1}$ is the  Fermi-Dirac distribution.
 The Lindblad superoperators act according to $\mathcal{L}[\mathcal{A}]\rho=2\mathcal{A}\rho \mathcal{A}^{\dagger}-\mathcal{A}^{\dagger}\mathcal{A}\rho-\rho\mathcal{A}^{\dagger}\mathcal{A}$, where $\mathcal{A}=\sigma_{\nu},\sigma_{\nu}^{\dagger},a_{p},a_{p}^{\dagger}$.
-
-Here, we consider $T\approx0$ , such that $\Gamma^{-}_{\nu}\approx 0$, $\gamma_{d\nu}^{+}\approx0$, and $\kappa_{p}^{+}\approx0$. In this case, the process of generating electron-hole pairs in \revision{nonequilibrium electronic reservoir} is prohibited.
-Meanwhile, photon bath-induced excitations for the cavity mode and the molecular exciton vanish. \revision{The detailed descriptions for above discussions can be found in Section I of the Supplemental Material \cite{SupplementalMaterial}.}
+Here, we consider $T\approx0$ , such that $\Gamma^{-}_{\nu}\approx 0$, $\gamma_{d\nu}^{+}\approx0$, and $\kappa_{p}^{+}\approx0$. In this case, the molecular exciton can only be generated by electrical driving. It can further decay into the photon bath or to the cavity mode. 
 
 
 To study the photon statistics in the cavity, we can calculate its equal-time $k$-th order coherence function $g^{(k)}(0)$ in the steady state
@@ -207,7 +209,7 @@ g^{(k)}(0)=\dfrac{\langle a_{p}^{\dagger k} a_{p}^{k} \rangle}{\langle a_{p}^{\d
 \end{split}
 \label{gn}
 \end{equation}
-where $p_{m}$ is the occupation probability of the cavity mode at state $|m\rangle$, see Section II of the Supplemental Material for details \cite{SupplementalMaterial}.
+where $p_{m}$ is the occupation probability of the cavity mode at state $|m\rangle$ (see Section II of Ref.~\cite{SupplementalMaterial} for details). 
 The photon bunching and anti-bunching correspond to $g^{(2)}(0)>1$ and $g^{(2)}(0)<1$, respectively.
 
 
@@ -220,7 +222,7 @@ In the following, we consider the photon emission from three different scenarios
 \includegraphics[width=0.4\textwidth]{fano-compare-mix.pdf}
 \caption{(a) Second-order photon correlation function $g^{(2)}(0)$ as a function of the energy detuning between molecules and the cavity, where the detuning is defined as $\Delta_{pm}=\varepsilon_{e}-\varepsilon_{g}~(\varepsilon_{l}-\varepsilon_{h})$.
 The corresponding mechanisms for single-molecule emission (b), emission due to Fano-like interference (c), and two-molecule emission (d) are displayed. 
-(e) Excitation paths for two molecules $p$ and $m$ in a cavity, where the molecule $p$ is excited by an electrical pumping $E_{p}$ and its interaction with cavity is characterized by parameter $g_{p}$, while the molecule $m$ can only be excited by the cavity via electron-photon coupling $g_{m}$. (f) Two distinguishable transition pathways of two-photon excitations extracted from (e). The details for these matrix elements are provided in Section II of the Supplemental Material \cite{SupplementalMaterial}. In our calculations,
+(e) Excitation paths for two molecules $p$ and $m$ in a cavity, where the molecule $p$ is excited by an electrical pumping $E_{p}$ and its interaction with cavity is characterized by parameter $g_{p}$, while the molecule $m$ can only be excited by the cavity via electron-photon coupling $g_{m}$. (f) Two distinguishable transition pathways of two-photon excitations extracted from (e). The details for these matrix elements are provided in Section II of Ref.~\cite{SupplementalMaterial}. In our calculations,
 we take $E_{p}=0.1~{\rm meV}$, $E_{m}=0.1~{\rm meV}$, $\gamma_{dp}=0.05~{\rm meV}$, $\gamma_{dm}=0.5~{\rm meV}$, $g_{p}=0.02~{\rm meV}$, $g_{m}=0.2~{\rm meV}$, $\gamma_{c}=0.02~{\rm meV}$, $\varepsilon_{l}=0.5~{\rm eV}$, $\varepsilon_{h}=-0.5~{\rm eV}$, $\varepsilon_{e}=0.5~{\rm eV}$, $\varepsilon_{g}=-0.5~{\rm eV}$, and $\hbar\omega_{c}=1.0~{\rm eV}$.
 The above parameters are used throughout the paper, unless stated otherwise.}
 \label{fano-compare}
@@ -238,7 +240,7 @@ The annihilation of the exciton emits the photon back to the cavity. One can see
 
 Hence, the Fano-like effect allows to achieve photon anti-bunching under electrical pumping. In detail, the Fano-like interference between the excitation of the cavity and the additional excitation from the molecule can suppress the emission of photon pairs while enhancing single-photon emission. To clarify this, we provide the corresponding excitation paths in Fig.~\ref{fano-compare}(e), in which we can extract two transition paths for two-photon excitations, as shown in Fig.~\ref{fano-compare}(f). Taking the coupled states as the basis, the first path is caused by the excitation of the molecule $p$, corresponding to $|hh,gg,1\rangle$ $\stackrel{E_{p}}{\longrightarrow}$ $|hh,ee,1\rangle$ $\stackrel{\sqrt{2}g_{p}}{\longrightarrow}$ $|hh,gg,2\rangle$. The second path only appears when the molecule $m$ without pumping is introduced, which can be  represented by $|hh,gg,1\rangle$ $\stackrel{g_{m}}{\longrightarrow}$ $|ll,gg,0\rangle$ $\stackrel{E_{p}}{\longrightarrow}$ $|ll,ee,0\rangle$ $\stackrel{g_{p}}{\longrightarrow}$ $|ll,gg,1\rangle$ $\stackrel{\sqrt{2}g_{m}}{\longrightarrow}$ $|hh,gg,2\rangle$.
 Meanwhile, the molecule $m$ leads to a sub-path for the first one, that is, $|ll,ee,0\rangle$ $\stackrel{g_{m}}{\longrightarrow}$ $|hh,ee,1\rangle$.
-As a consequence, we claim that the photon anti-bunching is caused by the quantum destructive interference between these two pathways. Notably, if the molecule $m$ is also excited by an electrical pumping $E_{m}$, more excitation paths are introduced, then the destructive interference is destroyed. As can be seen, the photon emitted from two-molecule emission case is bunched [Fig.~\ref{fano-compare}(a)]. Moreover, $g_{m}$-dependent photon statistics can also clarify the above discussions, see Section III of the Supplemental Material for details \cite{SupplementalMaterial}.
+As a consequence, we claim that the photon anti-bunching is caused by the quantum destructive interference between these two pathways. Notably, if the molecule $m$ is also excited by an electrical pumping $E_{m}$, more excitation paths are introduced, then the destructive interference is destroyed. As can be seen, the photon emitted from two-molecule emission case is bunched [Fig.~\ref{fano-compare}(a)]. Moreover, $g_{m}$-dependent photon statistics can also clarify the above discussions, see Section III of Ref.~\cite{SupplementalMaterial} for details.
 
 %\begin{figure}[h]
 %\centering
@@ -276,11 +278,11 @@ For single-molecule emission, the photon statistics obey Poisson distribution (b
 
 
  \subsection{Effect of dipole-dipole interaction}
- Above, our calculations ignore the dipole-dipole interaction between molecules. It only applies to the case when the inter-molecule distance is much larger than the characteristic length of dipole interaction. This requires a large cavity size. However, the dipolar interaction is unavoidable in situations like STM-induced electroluminescence \cite{zhang2016visualizing,PhysRevLett.122.233901}. Taking the parameters from such experiments, we can simulate the photon statistics of the emission with Fano-like interference in presence of the dipole-dipole interaction [Fig.~\ref{fano-td}]. Now, molecule $m$ can also be excited by molecule $p$ via the dipole-dipole interaction, represented by the parameter $t_{D}$. For $g_{m}\ll t_{D}$, the excitation of molecule $m$ by molecule $p$ dominates the photon emission process, such that $g^{(2)}(0)$ increases with $t_{D}$, and the transition from photon anti-bunching to bunching can be observed. Note that, for $g_{m}=0$, we can reproduce the results of a recent experiment \cite{PhysRevLett.122.233901}, where $g^{(2)}(0)$ for one molecule is smaller than the case of two molecules coupled through dipole interaction. For $g_{m}\gg t_{D}$, the photon emission with the Fano-like interference leads to a significant modification of the photon statistical properties. This provides an effective way to achieve the strong photon anti-bunching, and the reason has been explained in Fig.~\ref{fano-compare}(e)-(f). Remarkably, we find that the photon statistcs can be tuned from $g^{(2)}(0)=2$ to $g^{(2)}(0)=0.39$.
+ Above, our calculations ignore the dipole-dipole interaction between molecules. It only applies to the case when the inter-molecule distance is much larger than the characteristic length of dipole interaction. This requires a large cavity size. However, the dipolar interaction is unavoidable in situations like STM-induced electroluminescence \cite{zhang2016visualizing,PhysRevLett.122.233901}. Taking the parameters from such experiments, we can simulate the photon statistics of the emission with Fano-like interference in presence of the dipole-dipole interaction [Fig.~\ref{fano-td}]. Now, molecule $m$ can also be excited by molecule $p$ via the dipole-dipole interaction, represented by the parameter $t_{D}$. For $g_{m}\ll t_{D}$, the excitation of molecule $m$ by molecule $p$ dominates the photon emission process, such that $g^{(2)}(0)$ increases with $t_{D}$, and the transition from photon anti-bunching to bunching can be observed. Note that, for $g_{m}=0$, our results are consistent with a recent experiment \cite{PhysRevLett.122.233901}, where $g^{(2)}(0)$ for one molecule is smaller than the case of two molecules coupled through dipole interaction. For $g_{m}\gg t_{D}$, the photon emission with the Fano-like interference leads to a significant modification of the photon statistical properties. This provides an effective way to achieve the strong photon anti-bunching, and the reason has been explained in Fig.~\ref{fano-compare}(e)-(f). Remarkably, we find that the photon statistcs can be tuned from $g^{(2)}(0)=2$ to $g^{(2)}(0)=0.39$.
 
 
 \section{Conclusions}
-\revision{In summary, we provided unambiguous theoretical evidence for the role of the Fano-like interference effect on photon statistics in coupled molecule-cavity systems driven by electrical pumping. Only through the Fano-like effect, the photon statistics can be controlled from bunching and coherent to anti-bunching. We further proved that the anti-bunched behavior is survived even in presence of the direct dipolar coupling between molecules. A possible outlook is to use this effect for achieving nonclassical photons in electrically biased STM-molecule junctions.}
+\revision{In summary, we provide unambiguous theoretical evidence for the role of the Fano-like interference effect on photon statistics in coupled molecule-cavity systems driven by electrical pumping. Control of photon statistics thus becomes possible by selectively electrical driving, even in the presence of the direct dipolar coupling between molecules. This way of achieving on-demand single photon emission using quantum interference can be realized in electrically biased STM-molecule junctions.}
 
 
 %In summary, we have studied the photon statistics of molecules-cavity system that consists of two molecules and an optical cavity.
